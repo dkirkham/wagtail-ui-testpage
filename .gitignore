@@ -1,0 +1,8 @@
+*.pyc
+*.pot
+*.swp
+*.log
+*.sqlite3
+*.sqlite3-journal
+venv/
+__pycache__/
