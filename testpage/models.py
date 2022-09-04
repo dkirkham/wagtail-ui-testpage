@@ -1,25 +1,15 @@
 from django.db import models
-from django.utils import timezone
-from django.core.validators import MaxValueValidator, MinValueValidator
-from django.forms.widgets import RadioSelect
 
 from wagtail.core.models import Page, Orderable
 from wagtail.core.fields import RichTextField, StreamField
-from wagtail.admin.edit_handlers import (
+from wagtail.admin.panels import (
     FieldPanel,
-    FieldRowPanel,
     PageChooserPanel,
     InlinePanel,
     MultiFieldPanel,
-    HelpPanel,
-    StreamFieldPanel,
     ObjectList,
     TabbedInterface,
 )
-from wagtail.admin.forms import WagtailAdminPageForm
-from wagtail.snippets.edit_handlers import SnippetChooserPanel
-from wagtail.images.edit_handlers import ImageChooserPanel
-from wagtail.search import index
 from modelcluster.fields import ParentalKey
 
 class TestOrderable(Orderable):
@@ -105,7 +95,7 @@ class TestPage(Page):
     # Editor panels configuration
     principal_panels = Page.content_panels + [
         FieldPanel('time_field'),
-        ImageChooserPanel('hero_image'),
+        FieldPanel('hero_image'),
         FieldPanel('char_field_1'),
         FieldPanel('introduction'),
     ]
@@ -113,10 +103,10 @@ class TestPage(Page):
     ord_panels = [
         MultiFieldPanel(
             [
-                InlinePanel('test_ord', label="Orderables")
+                InlinePanel('test_ord', label="Orderables (InlinePanel label)")
             ],
-            heading="Orderables List",
-            help_text="List Ords in the required order"
+            heading="Orderables Heading",
+            help_text="List Orderables in the required order"
         ),
         FieldPanel('duration'),
     ]
