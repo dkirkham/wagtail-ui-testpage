@@ -1,7 +1,7 @@
 from django.db import models
 
-from wagtail.core.models import Page, Orderable
-from wagtail.core.fields import RichTextField, StreamField
+from wagtail.models import Page, Orderable
+from wagtail.fields import RichTextField, StreamField
 from wagtail.admin.panels import (
     FieldPanel,
     PageChooserPanel,

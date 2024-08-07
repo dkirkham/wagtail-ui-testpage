@@ -3,7 +3,7 @@
 from django.db import migrations, models
 import django.db.models.deletion
 import modelcluster.fields
-import wagtail.core.fields
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
                 ('time_field', models.DateTimeField(help_text='Date and Time the event commences.')),
                 ('char_field_1', models.CharField(blank=True, help_text='Short line describing any event organiser', max_length=128, null=True)),
                 ('char_field_2', models.CharField(help_text='Very short one-liner describing the event', max_length=128)),
-                ('introduction', wagtail.core.fields.RichTextField(blank=True, help_text='Event Introduction', max_length=1500, null=True)),
+                ('introduction', wagtail.fields.RichTextField(blank=True, help_text='Event Introduction', max_length=1500, null=True)),
                 ('duration', models.IntegerField(default=120, help_text='Nominal duration of the event in minutes')),
                 ('char_field_3', models.CharField(help_text='Very short one-liner describing the event', max_length=128)),
                 ('char_field_4', models.CharField(help_text='Very short one-liner describing the event', max_length=128)),
@@ -52,7 +52,7 @@ class Migration(migrations.Migration):
                 ('sort_order', models.IntegerField(blank=True, editable=False, null=True)),
                 ('datetime_field', models.DateTimeField(help_text='Date and Time the test commences')),
                 ('time_field', models.TimeField(blank=True, help_text='Time the test commences', null=True)),
-                ('message', wagtail.core.fields.RichTextField(blank=True, help_text='Message needs to have been approved', max_length=300, null=True)),
+                ('message', wagtail.fields.RichTextField(blank=True, help_text='Message needs to have been approved', max_length=300, null=True)),
                 ('page', modelcluster.fields.ParentalKey(on_delete=django.db.models.deletion.CASCADE, related_name='test_ord', to='testpage.testpage')),
                 ('sub_page', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='testpage.testsubpage')),
             ],
