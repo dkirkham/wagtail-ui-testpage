@@ -43,7 +43,14 @@ class TestOrderable(Orderable):
 
 class TestPage(Page):
 
-    time_field = models.DateTimeField(
+    time_field = models.TimeField(
+        null=True,
+        blank=False,
+        help_text="Time the event commences."
+    )
+    datetime_field = models.DateTimeField(
+        null=True,
+        blank=False,
         help_text="Date and Time the event commences."
     )
     hero_image = models.ForeignKey(
@@ -95,6 +102,7 @@ class TestPage(Page):
     # Editor panels configuration
     principal_panels = Page.content_panels + [
         FieldPanel('time_field'),
+        FieldPanel('datetime_field'),
         FieldPanel('hero_image'),
         FieldPanel('char_field_1'),
         FieldPanel('introduction'),

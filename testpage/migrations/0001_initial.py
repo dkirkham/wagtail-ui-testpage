@@ -30,7 +30,8 @@ class Migration(migrations.Migration):
             name='TestPage',
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
-                ('time_field', models.DateTimeField(help_text='Date and Time the event commences.')),
+                ('time_field', models.TimeField(help_text='Time the event commences.', null=True)),
+                ('datetime_field', models.DateTimeField(help_text='Date and Time the event commences.', null=True)),
                 ('char_field_1', models.CharField(blank=True, help_text='Short line describing any event organiser', max_length=128, null=True)),
                 ('char_field_2', models.CharField(help_text='Very short one-liner describing the event', max_length=128)),
                 ('introduction', wagtail.fields.RichTextField(blank=True, help_text='Event Introduction', max_length=1500, null=True)),
